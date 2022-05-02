@@ -33,7 +33,7 @@ public class DragonBall {
         this.with=dragonBallPicture.getIconWidth();
         this.higth=dragonBallPicture.getIconHeight();
         visible = true;
-        this.gokuPictuer = new ImageIcon("image_herow.png"); // תמונת הגיבור
+        this.gokuPictuer = new ImageIcon("image_herow-removebg-preview.png"); // תמונת הגיבור
         goku = new Hero(gokuPictuer, START_LIFE);
         herowRect =new Rectangle(goku.getX() , goku.getY(),goku.getWidth(),goku.getHeight());
         setVisible(true);

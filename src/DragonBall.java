@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Random;
 
 
@@ -9,8 +7,7 @@ public class DragonBall {
     Random random= new Random();
                               //   שינוי אחרון רלוונטי: 8:16
 
-    private final int WHITH=1300; // גודל הפאנל
-    private final int HIGHT=1000;
+
     private final int START_LIFE=3;
     private final int X_STEP=4;
     private final int X_BALL_CHANGE=100;

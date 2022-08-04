@@ -60,7 +60,7 @@ public class Enemy {
             public void actionPerformed(ActionEvent e) {
                 y=random.nextInt(HIGHT-height);
             }
-        }); // TODO: טיימר רנדומלי
+        });
         timer.start();
     }
 }

@@ -23,6 +23,7 @@ public class Obstacle {
 
     Random random= new Random();
                                //   שינוי אחרון רלוונטי: 8:16
+
     public Obstacle (int x, int y, ImageIcon image){
         this.x=x;
         this.y=y;

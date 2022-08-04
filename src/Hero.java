@@ -2,8 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
-public  class Hero { // יכול להיות שאשנה מאבסטרקטית לherow ץבמידה והיהיו התנגשויות עם האויב כשלוחץ על החצים להזזת הגיבור
-
+public  class Hero {
                       //   שינוי אחרון רלוונטי: 15:54
 
     private  final int SPEED=5;
@@ -89,7 +88,7 @@ public  class Hero { // יכול להיות שאשנה מאבסטרקטית לhe
     // מתודה המאפשרת תזוזה בעת לחיצה על מקשי תנועה
     public  void keyPressed(KeyEvent k){
         int key=k.getKeyCode();
-        if (key==KeyEvent.VK_LEFT && getX()>HEROW_X_START){  // TODO למה בהגבלת תזוזה לגבולות המשחק, אם לוחצים מקש ארוך מבטל את המגבלה??
+        if (key==KeyEvent.VK_LEFT && getX()>HEROW_X_START){
             dx=-SPEED;
 
         }

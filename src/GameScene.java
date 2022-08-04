@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.Random;
-//   TODO: לעצב גופן טקס, אולי כדי להחליף בכותרת יותר יפה לנסות
 
 public class GameScene extends JPanel implements ActionListener {
 
@@ -54,7 +53,6 @@ public class GameScene extends JPanel implements ActionListener {
         this.setFocusable(true);
         this.requestFocus();
         addKeyListener(new TAdapter()); //*** ליסנר שבודק כל הזמן האם מקש נלחץ
-        this.setBackground(Color.cyan); //  TODO:לשנות לתמונה
 
 
         Font gameOverFont = new Font("YOU LOSE!", Font.BOLD, FOUNT_SIZE);
@@ -80,7 +78,7 @@ public class GameScene extends JPanel implements ActionListener {
         goku = new Hero(gokuPictuer, START_LIFE);
 
         JLabel lifeCounterText = new JLabel("amount of life rest: " + goku.getLifeCounter()); // תיבת טקסט חיים
-        Font lifeFount = new Font("life", Font.ITALIC, TEXT_SIZE);  //TODO: עיצוב גופן - עתיד!!
+        Font lifeFount = new Font("life", Font.ITALIC, TEXT_SIZE);
         lifeCounterText.setFont(lifeFount);
         lifeCounterText.setBounds(10, YSTART, TEXT_WITH, TEXT_HIGTH);
         lifeCounterText.setHorizontalTextPosition(JLabel.CENTER);
@@ -89,7 +87,7 @@ public class GameScene extends JPanel implements ActionListener {
         this.add(lifeCounterText);
 
         JLabel dragonBCounterText = new JLabel("balls number collected: " + goku.getDragonBallsCounter()); //תיבת טקסט כמות הכדורים שנאספו
-        Font dCounterFount = new Font("dragon counter", Font.ITALIC, TEXT_SIZE);  //TODO: עיצוב גופן - עתיד!!
+        Font dCounterFount = new Font("dragon counter", Font.ITALIC, TEXT_SIZE);
         dragonBCounterText.setFont(dCounterFount);
         dragonBCounterText.setBounds(WHITH - (TEXT_WITH + DELTA_TEXT), YSTART, TEXT_WITH + TEXT_SIZE, TEXT_HIGTH);
         dragonBCounterText.setHorizontalTextPosition(JLabel.CENTER);
@@ -104,7 +102,7 @@ public class GameScene extends JPanel implements ActionListener {
         obstacle = new Obstacle(WHITH - frizaPicture.getIconWidth() - OBSTACKE_DELTA_X, friza.getY() + OBSTACKE_DELTA_Y, obstacleImage);
         dragonBall = new DragonBall(WHITH, random.nextInt(HIGHT - (ballImage.getIconHeight() * 2)), ballImage);
 
-        Thread t1 = new Thread(() -> { //
+        Thread t1 = new Thread(() -> {
             this.setFocusable(true);
             this.requestFocus();
             addKeyListener(new TAdapter()); //*** ליסנר שבודק כל הזמן האם מקש נלחץ
@@ -131,14 +129,14 @@ public class GameScene extends JPanel implements ActionListener {
                             if (goku.getLifeCounter() == LOSS_LIFE_C) { // במקרה של הפסד
                                 System.out.println("game over");
                                 add(gameOver);
-                                //  TODO:הופעת מסך הבית
+
                                 break;
                             }
                         } catch (Exception e) {
                             System.out.println("there is a problem." + "\n please call the technical-support: +972-58-648-9811.");
                         }
 
-                        lifeCounterText.setText("amount of life rest:" + goku.getLifeCounter()); // TODO: שהחיים יתעדכנו לבד
+                        lifeCounterText.setText("amount of life rest:" + goku.getLifeCounter());
                     }
 
                     if (obstacle.getX() < XSTART) {
@@ -156,7 +154,6 @@ public class GameScene extends JPanel implements ActionListener {
                     if (dragonBall.getX() == LOSS_LIFE_C) { //  מקרה של הפסד
                         System.out.println("game over");
                         add(gameOver);
-                        //  TODO:הופעת מסך הבית
                         setVisible(true);
                         break;
 
@@ -191,7 +188,7 @@ public class GameScene extends JPanel implements ActionListener {
 
     }
 
-    // מתודות ציור(גרפיקה)
+    // מתודות ציור רקע
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         this.baeck.paintIcon(this, g, XSTART, YSTART);
@@ -200,7 +197,7 @@ public class GameScene extends JPanel implements ActionListener {
         Toolkit.getDefaultToolkit().sync();
     }
 
-    private void doDrawing(Graphics g) {  // מתודת גרפיקה שמציירת את התמונה- בלעדיה אין תמונה-חשוב מאוד!!!
+    private void doDrawing(Graphics g) {  // מתודת גרפיקה שציירת את המסך מחדש - מונע "שובל" של הדמות
         Graphics2D g2d = (Graphics2D) g;
 
         g2d.drawImage(goku.getImage(), goku.getX(), goku.getY(), this);
@@ -220,7 +217,7 @@ public class GameScene extends JPanel implements ActionListener {
     }
 
 
-    private class TAdapter extends KeyAdapter { //** איך מתבצע בדיוק הליסנר הזה
+    private class TAdapter extends KeyAdapter {
 
         public void keyReleased(KeyEvent e) {
             goku.keyReleased(e);

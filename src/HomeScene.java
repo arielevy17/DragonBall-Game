@@ -1,28 +1,23 @@
 import javax.swing.*;
 import java.awt.*;
-                          //     עידכון אחרון: 2.05 15:15
+                          //     עידכון אחרון: 4.8.22
 
 
 public class HomeScene extends JFrame {
 
-    private final int WHITH=1300; // גודל הפאנל
-    private final int HIGHT=1000;
-    JTextArea instructions = new JTextArea("Help Goku save the world !!\n" +
-            "In order to defeat Priza and save the world, you must collect all 7 Dragon Balls.\n" +
-            "If you miss even one ball,\n" +
-            "Or you're hit by Priza's energy balls three times,\n" +
-            "You will lose and the earth will be destroyed !!!\n" +
-            "\n" +
-            "Go ahead and get going!");
+    private final int WHITH=1000; // גודל הפאנל
+    private final int HIGHT=950;
+    private final int WHITH_GAME_SCENE=1300; // גודל הפאנל
+    private final int HIGHT_GAME_SCENE=1000;
 
     public HomeScene(){
         this.setSize(WHITH,HIGHT);
         this.setLayout(null);
         this.setResizable(false);
         this.setVisible(true);
-        JPanel homePanel=new JPanel();
+        GameInstructions i=new GameInstructions();
+        JPanel homePanel=i;
         homePanel.setBounds(0,0,WHITH,HIGHT);
-        homePanel.setBackground(Color.CYAN);
         add(homePanel);
         homePanel.setVisible(true);
         JButton newGameB=new JButton();  //  כפתור למשחק חדש
@@ -30,21 +25,14 @@ public class HomeScene extends JFrame {
         newGameB.setText("New Game");
         newGameB.setBackground(Color.YELLOW);
         newGameB.addActionListener((event)->{
+            this.setSize(WHITH_GAME_SCENE,HIGHT_GAME_SCENE);
             add(new GameScene());
         });
         add(newGameB);
+        newGameB.requestFocus();
         newGameB.setVisible(true);
 
-        JButton exitB =new JButton();
-        exitB.setBounds(WHITH/2,(HIGHT/3)*2,160,50);
-        exitB.setText("Exit");
-        exitB.setBackground(Color.RED);
-        exitB.addActionListener((event)->{ // **
-         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        });
-        add(exitB);
-        exitB.setVisible(true);
-        GameInstructions i=new GameInstructions();
+
 
     }
 
